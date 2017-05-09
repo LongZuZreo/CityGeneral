@@ -39,8 +39,9 @@ public class FragmentFlyer {
         return fragmentFlyer;
     }
 
-    public void setLayoutId(int layoutId){
+    public FragmentFlyer setLayoutId(int layoutId){
         this.layoutId=layoutId;
+        return this;
     }
 
     public FragmentFlyer startFragment(Class<? extends Fragment> fragmentClass){
