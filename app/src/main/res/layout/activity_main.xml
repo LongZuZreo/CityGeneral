@@ -1,21 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.citygeneral.MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="#FFFFFF">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="你好，军哥"
-      />
-    <FrameLayout
+    <RelativeLayout
+        android:id="@+id/base_action_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/mFragment">
+        android:layout_height="50dp"
+        android:background="@color/red_text">
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/user_hand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_alignParentLeft="true"
+            android:visibility="visible"
+            />
+
+        <TextView
+            android:id="@+id/tab_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="延庆在线"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:src="@drawable/cover_main_add_n"
+            android:id="@+id/more"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:src="@drawable/ccoo_icon_mes"
+            android:id="@+id/notification"
+            android:layout_toLeftOf="@id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/mFram"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
     </FrameLayout>
 
-</RelativeLayout>
+    <RadioGroup
+        android:id="@+id/fragment_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:weightSum="5">
+
+        <RadioButton
+            android:checked="true"
+            android:id="@+id/hotBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_host_selector"
+            android:gravity="center_horizontal"
+            android:text="头条" />
+
+        <RadioButton
+            android:id="@+id/naoBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_naonao_selector"
+            android:gravity="center_horizontal"
+            android:text="闹闹" />
+
+        <RadioButton
+            android:id="@+id/communityBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_community_selector"
+            android:gravity="center_horizontal"
+            android:text="社区" />
+
+        <RadioButton
+            android:id="@+id/liveBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_live_selector"
+            android:gravity="center_horizontal"
+            android:text="生活" />
+
+        <RadioButton
+            android:id="@+id/findBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_find_selector"
+            android:gravity="center_horizontal"
+            android:text="发现" />
+
+    </RadioGroup>
+</LinearLayout>
