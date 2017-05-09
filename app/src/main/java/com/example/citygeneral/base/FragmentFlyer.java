@@ -17,6 +17,8 @@ public class FragmentFlyer {
     private FragmentTransaction transaction;
     private String fragmentName;
 
+    private int layoutId;
+
     private FragmentFlyer(AppCompatActivity activity){
         fragmentManager = activity.getSupportFragmentManager();
     }
@@ -37,6 +39,10 @@ public class FragmentFlyer {
         return fragmentFlyer;
     }
 
+    public void setLayoutId(int layoutId){
+        this.layoutId=layoutId;
+    }
+
     public FragmentFlyer startFragment(Class<? extends Fragment> fragmentClass){
 
         fragmentName = fragmentClass.getSimpleName();
@@ -53,7 +59,7 @@ public class FragmentFlyer {
             try {
                 fragment=fragmentClass.newInstance();
 
-                transaction.add(fragment, fragmentName);
+                transaction.add(layoutId,fragment, fragmentName);
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
