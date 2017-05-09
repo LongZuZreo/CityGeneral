@@ -3,6 +3,8 @@ package com.example.citygeneral;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.citygeneral.base.FragmentFlyer;
+import com.example.citygeneral.fragment.HeadLineFragment;
 import com.example.citygeneral.model.callback.MyCallBack;
 import com.example.citygeneral.model.entity.User;
 import com.example.citygeneral.model.http.BaseVolley;
@@ -17,5 +19,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FragmentFlyer.getInstance(this).setLayoutId(R.id.mFragment).startFragment(HeadLineFragment.class).addToStack().build();
     }
 }
