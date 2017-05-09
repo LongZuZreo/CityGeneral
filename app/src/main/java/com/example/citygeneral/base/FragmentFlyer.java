@@ -71,6 +71,7 @@ public class FragmentFlyer {
 
         lastFragment=fragment;
 
+        transaction.commit();
         return this;
     }
 
