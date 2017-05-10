@@ -34,7 +34,7 @@ public class CitiesActivity extends BaseActivity{
 
     @Override
     protected void loadData() {
-        BaseVolley.getInstance().doPostString(NetUrl.APPURL,"hhh","",null);
+
     }
 
     @Override
@@ -45,6 +45,5 @@ public class CitiesActivity extends BaseActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppApplication.getInstance().cancelAll("hhh");
     }
 }

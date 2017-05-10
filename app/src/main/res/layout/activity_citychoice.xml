@@ -92,7 +92,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:paddingRight="10dp"
-                        android:layout_toLeftOf="@id/home_pen_image"
+                        android:layout_toLeftOf="@+id/home_pen_image"
                         android:text="洮南在线"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
@@ -131,7 +131,7 @@
                         android:layout_below="@+id/view1"
                         android:paddingRight="10dp"
                         android:layout_marginTop="15dp"
-                        android:layout_toLeftOf="@id/job_pen_image"
+                        android:layout_toLeftOf="@+id/job_pen_image"
                         android:text="未设置"
                         android:textColor="@color/white"
                         android:textSize="16sp" />

@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.citygeneral.base.BaseActivity;
 import com.example.citygeneral.base.BaseFragment;
+import com.example.citygeneral.base.FragmentFlyer;
+import com.example.citygeneral.fragment.HeadLineFragment;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -36,6 +38,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected int getLayoutId() {
+        if(getSupportActionBar().isShowing()){
+            getSupportActionBar().hide();
+        }
+        FragmentFlyer.getInstance(this).setLayoutId(R.id.mFram).startFragment(HeadLineFragment.class).addToStack().build();
         return R.layout.activity_main;
     }
 
@@ -75,6 +81,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.hotBtn:
+                FragmentFlyer.getInstance(this).setLayoutId(R.id.mFram).startFragment(HeadLineFragment.class).addToStack().build();
                 break;
             case R.id.naoBtn:
                 break;
