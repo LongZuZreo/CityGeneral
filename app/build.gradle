@@ -31,4 +31,5 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.sothree.slidinguppanel:library:3.3.0'
     compile 'com.androidkun:pulltorefreshrecyclerview:1.0.6'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
 }

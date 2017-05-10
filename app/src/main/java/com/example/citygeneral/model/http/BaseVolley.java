@@ -102,7 +102,7 @@ public class BaseVolley {
         AppApplication.getInstance().add(stringRequest);
     }*/
 
-    private <T> T t(String response, MyCallBack myCallBack) {
+    private <T> T t(String response, MyCallBack<T> myCallBack) {
         Gson gson = new Gson();
         Type[] types = myCallBack.getClass().getGenericInterfaces();
         Type[] parameterized = ((ParameterizedType) types[0]).getActualTypeArguments();
