@@ -16,7 +16,9 @@ public class CitiesActivity extends BaseActivity{
 
     @Override
     protected int getLayoutId() {
-        getSupportActionBar().hide();
+        if(getSupportActionBar().isShowing()){
+            getSupportActionBar().hide();
+        }
         return R.layout.activity_citylist;
     }
 

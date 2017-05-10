@@ -55,7 +55,7 @@
                         android:text="设置"
                         android:padding="10dp"
                         android:textColor="@color/white"
-                        android:textSize="14dp" />
+                        android:textSize="14sp" />
                 </RelativeLayout>
 
                 <TextView
@@ -84,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:text="家乡城市"
                         android:textColor="#fff"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/home_text2"
@@ -92,7 +92,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:paddingRight="10dp"
-                        android:layout_toLeftOf="@+id/home_pen_image"
+                        android:layout_toLeftOf="@id/home_pen_image"
                         android:text="洮南在线"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
@@ -121,7 +121,7 @@
                         android:layout_marginTop="15dp"
                         android:text="工作城市"
                         android:textColor="@color/white"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/job_text2"
@@ -131,10 +131,10 @@
                         android:layout_below="@+id/view1"
                         android:paddingRight="10dp"
                         android:layout_marginTop="15dp"
-                        android:layout_toLeftOf="@+id/job_pen_image"
+                        android:layout_toLeftOf="@id/job_pen_image"
                         android:text="未设置"
                         android:textColor="@color/white"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:id="@+id/job_pen_image"
@@ -161,7 +161,7 @@
                         android:layout_marginTop="15dp"
                         android:text="喜欢城市"
                         android:textColor="@color/white"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/school_text2"
@@ -174,7 +174,7 @@
                         android:layout_toLeftOf="@+id/school_pen_image"
                         android:text="未设置"
                         android:textColor="@color/white"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:id="@+id/school_pen_image"
@@ -266,7 +266,7 @@
                         android:paddingRight="50dp"
                         android:text="更多城市选择"
                         android:textColor="@color/white"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
 

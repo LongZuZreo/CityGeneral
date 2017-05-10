@@ -18,7 +18,9 @@ public class CityChoiceActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected int getLayoutId() {
-        getSupportActionBar().hide();
+        if(getSupportActionBar().isShowing()){
+            getSupportActionBar().hide();
+        }
         return R.layout.activity_citychoice;
     }
 
