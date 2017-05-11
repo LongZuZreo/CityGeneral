@@ -65,6 +65,7 @@ public class BaseVolley {
     }
 
     public <T> void doGetString(String url, String tag, final MyCallBack<T> mCallBack) {
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -102,7 +103,7 @@ public class BaseVolley {
         AppApplication.getInstance().add(stringRequest);
     }*/
 
-    private <T> T t(String response, MyCallBack myCallBack) {
+    private <T> T t(String response, MyCallBack<T> myCallBack) {
         Gson gson = new Gson();
         Type[] types = myCallBack.getClass().getGenericInterfaces();
         Type[] parameterized = ((ParameterizedType) types[0]).getActualTypeArguments();

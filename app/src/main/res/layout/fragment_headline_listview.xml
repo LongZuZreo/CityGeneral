@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="220dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mfragmentlistview_Title"
+            android:text="lalallaallallal"
+            android:textSize="14sp"
+            android:textColor="#000000"/>
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:textColor="#CCCCCC"
+                android:textSize="12sp"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/mfragmentlistview_msg"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/mfragmentlistview_number"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="14dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/tab_find_selector"
+                android:layout_toLeftOf="@id/mfragmentlistview_number"
+                android:layout_alignParentBottom="true"/>
+
+        </RelativeLayout>
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:scaleType="fitXY"
+        android:id="@+id/mfragmentlistview_image"
+        android:layout_gravity="center"/>
+</LinearLayout>
