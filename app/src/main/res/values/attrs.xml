@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="rightPadding" format="dimension"/>
+    <attr name="rightContentWidth" format="dimension"/>
     <declare-styleable name="MySlidingMenu">
-        <attr name="rightPadding"/>
+        <attr name="rightContentWidth"/>
     </declare-styleable>
 </resources>
