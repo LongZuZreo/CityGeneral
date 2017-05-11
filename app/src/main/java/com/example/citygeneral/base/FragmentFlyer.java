@@ -16,6 +16,7 @@ public class FragmentFlyer {
     private Fragment lastFragment;
     private FragmentTransaction transaction;
     private String fragmentName;
+    private boolean isAddToBackStack=false;
 
     private int layoutId;
 
@@ -44,6 +45,11 @@ public class FragmentFlyer {
         return this;
     }
 
+    public FragmentFlyer isAddToBackStack(boolean isAddToBackStack){
+        this.isAddToBackStack=isAddToBackStack;
+        return this;
+    }
+
     public FragmentFlyer startFragment(Class<? extends Fragment> fragmentClass){
 
         fragmentName = fragmentClass.getSimpleName();
@@ -69,6 +75,11 @@ public class FragmentFlyer {
         }
         transaction.show(fragment);
 
+        if (isAddToBackStack) {
+
+            transaction.addToBackStack(fragmentName);
+
+        }
         lastFragment=fragment;
 
         transaction.commit();
@@ -76,7 +87,7 @@ public class FragmentFlyer {
     }
 
     public FragmentFlyer addToStack(){
-        transaction.addToBackStack(fragmentName);
+
         return this;
     }
     public Fragment build(){

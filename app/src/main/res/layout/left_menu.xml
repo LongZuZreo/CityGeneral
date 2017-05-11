@@ -1,9 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ListView
+    android:layout_height="match_parent"
+    android:background="#00FFFFFF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:id="@+id/user_head_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/user_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/user_head_image"
+            android:text="冰块君"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/user_sign_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_name_text"
+            android:layout_toRightOf="@id/user_head_image"
+            android:text="未设置签名"
+            android:textColor="@color/colorGray"/>
+
+        <ImageView
+            android:id="@+id/sex_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/regist_man_check"
+            android:layout_toRightOf="@id/user_name_text"
+            android:layout_marginTop="18dp"/>
+
+        <ImageView
+            android:id="@+id/right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        ></ListView>
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/user_attention_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mainccooactivity_icon_guanzhu"
+            android:layout_marginLeft="70dp"/>
+        <TextView
+            android:id="@+id/user_attention_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0关注"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:layout_toRightOf="@id/user_attention_image"
+            />
+
+        <ImageView
+            android:id="@+id/user_fans_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mainccooactivity_icon_fans"
+           android:layout_toRightOf="@id/user_attention_text" />
+        <TextView
+            android:id="@+id/user_fans_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0粉丝"
+            android:layout_toRightOf="@id/user_fans_image"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray"/>
+    <ListView
+        android:id="@+id/mList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>
+
+
 </LinearLayout>
