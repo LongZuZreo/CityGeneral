@@ -14,6 +14,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 
+
 import com.example.citygeneral.R;
 import com.nineoldandroids.view.ViewHelper;
 

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="#00FFFFFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/mainccooactivity_icon_guanzhu"
-            android:layout_marginLeft="100dp"/>
+            android:layout_marginLeft="70dp"/>
         <TextView
             android:id="@+id/user_attention_text"
             android:layout_width="wrap_content"

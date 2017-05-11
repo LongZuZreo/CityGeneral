@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if(getSupportActionBar().isShowing()){
             getSupportActionBar().hide();
         }
-        FragmentFlyer.getInstance(this).setLayoutId(R.id.mFram).startFragment(HeadLineFragment.class).addToStack().build();
+        FragmentFlyer.getInstance(this).setLayoutId(R.id.mFram).isAddToBackStack(true).startFragment(HeadLineFragment.class).build();
         return R.layout.activity_main;
     }
 
