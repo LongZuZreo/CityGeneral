@@ -5,4 +5,189 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGray">#EDEDED</color>
+    <!-- 找工作主界面名企招聘职位、薪水背景 -->
+    <color name="gray_bg01">#F5F5F5</color>
+    <color name="gray_bg1">#ebebeb</color>
+    <color name="white">#FFFFFF</color>
+    <color name="hui">#fafafa</color>
+    <color name="white_message">#00000000</color>
+    <color name="username">#fff0f0f0</color>
+    <color name="text_title_small">#666</color>
+    <color name="text_title_scan">#ccc</color>
+    <color name="bg_search_small">#f7f7f7</color>
+    <color name="divider_city">#E3E4E6</color>
+    <color name="black">#000</color>
+    <color name="black_share">#222</color>
+    <color name="line_menus">#e7e7e7</color>
+    <color name="text_hint_search">#ccc</color>
+    <color name="item_bg_gray">#f6f6f6</color>
+    <color name="item_tv_title">#333</color>
+    <color name="item_tv_content">#999</color>
+    <color name="list_selector">#E8E8E8</color>
+    <color name="text_sidebar">#6F8197</color>
+    <color name="bg_fault">#ffc</color>
+    <color name="text_switch_city">#06c</color>
+    <color name="red_text">#E03016</color>
+    <color name="bg_introduce0">#4393C2</color>
+    <color name="bg_introduce1">#E88612</color>
+    <color name="bg_introduce2">#71B937</color>
+    <color name="text_welcom1">#888</color>
+    <color name="text_welcom3">#999</color>
+    <color name="text_welcom2">#bbb</color>
+    <color name="bg_item_menu">#F5F5F5</color>
+    <color name="bg_item_news_item">#e6e6e6</color>
+    <color name="bottom_befor">#5B6977</color>
+    <color name="bottom_after">#4F5B66</color>
+    <color name="child_line">#D9DADB</color>
+    <color name="life_price_color">#FF3300</color>
+
+    <!-- 二维码扫描 -->
+    <color name="transparent">#00000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_laser">#ffcc0000</color>
+    <color name="result_points">#c099cc00</color>
+    <color name="possible_result_points">#c0ffbd21</color>
+    <color name="gridview_title">#F7F7F7</color>
+    <color name="text_after">#E03016</color>
+    <color name="text_befor">#4D515B</color>
+    <color name="bbs_bt_after">#FFAC2F</color>
+    <color name="bbs_bt_befor">#91ABBF</color>
+    <color name="bbs_number">#f00</color>
+    <color name="line">#E2E2E2</color>
+
+    <!-- <color name="possible_result_points">#c0ffff00</color> -->
+
+
+    <!-- 添加 -->
+    <color name="shape_stroke">#b9b9b9</color>
+    <color name="back_01">#333</color>
+    <color name="back_01_old">#4b4b4b</color>
+    <color name="back_02">#999</color>
+    <color name="back_03">#ccc</color>
+    <color name="back_bbb">#bbb</color>
+    <color name="back_666">#666</color>
+    <color name="back_555">#555</color>
+    <color name="back_444">#444</color>
+    <color name="back_777">#777</color>
+    <color name="back_agent">#787878</color>
+    <color name="back_7d">#D9D9D9</color>
+    <color name="back_f7">#F7F7F7</color>
+    <color name="three">#333</color>
+    <color name="two">#222</color>
+    <color name="zero">#000</color>
+    <color name="fafafa">#FAFAFA</color>
+    <color name="red_dark">#A60201</color>
+    <color name="red_text_shallow">#FF3300</color>
+    <color name="pink_line">#FFEEEE</color>
+    <color name="orange">#FF9900</color>
+    <color name="orange_line">#f60</color>
+    <color name="orange_press">#EA8C00</color>
+    <color name="grayline">#E2E2E2</color>
+    <color name="popwindow_line">#E6E2E1</color>
+    <color name="green_line">#339966</color>
+    <color name="white_lower">#FAFAFA</color>
+    <color name="white_lower02">#f9f9f9</color>
+    <color name="white_lower01">#F6F6F6</color>
+    <color name="pink_text">#FF0033</color>
+    <color name="blue_text">#0066CC</color>
+    <color name="blue_text_press">#004E9B</color>
+    <color name="widget_press_backgroud">#fff0f0f0</color>
+    <color name="pop_default_background">#F6F0EC</color>
+    <color name="pop_press_background">#F2EBE6</color>
+    <color name="top_text_color">#787878</color>
+    <color name="green_record_job">#009900</color>
+    <color name="blue">#0099ff</color>
+    <color name="yellow">#FF9900</color>
+
+    <!-- 最新添加 -->
+    <color name="color_f0">#F0F0F0</color>
+    <color name="color_999">#999999</color>
+    <color name="color_f90">#FF9900</color>
+    <color name="color_333">#333333</color>
+    <color name="color_666">#666666</color>
+    <color name="color_f5">#F5F5F5</color>
+    <color name="color_e8">#E8E8E8</color>
+    <color name="color_f7">#F7F7F7</color>
+    <color name="color_eb">#EbEbEb</color>
+    <color name="color_fa">#FaFaFa</color>
+    <color name="color_f410">#ff4100</color>
+    <color name="all_top_bg">#f03732</color>
+    <color name="color_ccc">#cccccc</color>
+    <color name="color_6a">#6a6a6a</color>
+    <color name="color_a80">#a80000</color>
+    <color name="color_d8502">#dd8502</color>
+    <color name="color_54af3">#54af33</color>
+    <color name="color_0f">#00ffff</color>
+    <color name="color_09f">#0099ff</color>
+    <color name="color_0783fe">#0783fe</color>
+    <color name="color_green">#33cc00</color>
+    <color name="color_pink">#ff3399</color>
+    <color name="color_pink2">#fa538b</color>
+
+    <color name="login_edit_text">#ff4200</color>
+    <color name="login_edit_line">#ff9900</color>
+    <color name="login_edit_hint">#f1866f</color>
+    <color name="mypage_tag1">#f67c79</color>
+    <color name="mypage_tag2">#8bd5be</color>
+    <color name="mypage_tag3">#ffa63d</color>
+    <color name="mypage_tag4">#c5bdf6</color>
+    <color name="mypage_tag5">#fc7aec</color>
+    <color name="found_bg1">#fd8e36</color>
+    <color name="found_bg2">#5598dc</color>
+    <color name="found_bg3">#f76278</color>
+    <!-- 新增找工作 -->
+    <color name="bg_green_light">#ff99cc00</color>
+    <color name="bg_blue_lower">#65B2FF</color>
+    <color name="tag">#CB0004</color>
+    <color name="sales_tag">#f00</color>
+    <color name="chengse">#ff6600</color>
+    <color name="show_line_heng">#654845</color>
+    <color name="show_line_shu">#7D5955</color>
+    <color name="show_time_text">#8C6664</color>
+    <color name="show_top_bottom">#4D515B</color>
+    <color name="show_text_yellow">#DFD731</color>
+    <color name="show_text_dark">#A37672</color>
+    <color name="show_text_gray">#ACACAC</color>
+    <color name="show_333333">#333333</color>
+    <color name="show_publish_onebg">#EEEEEE</color>
+    <color name="show_publish_text">#666666</color>
+    <color name="show_yellow_bg">#FED754</color>
+    <color name="show_image_moren">#373F48</color>
+    <color name="bbs_text_yellow">#ff9933</color>
+    <!-- 任务 -->
+
+    <color name="task_mylevel_topview1">#FCF4BA</color>
+    <color name="task_mylevel_topview2">#FDB982</color>
+    <color name="task_mylevel_toptext">#FE5700</color>
+    <color name="task_mycitymoney1">#FEF8FA</color>
+    <color name="task_mycitymoney2">#FEFAF1</color>
+    <color name="task_mycitymoney3">#F0F0F0</color>
+    <color name="task_mycitymoney4">#F1FBFF</color>
+
+    <!-- 设置 -->
+
+    <color name="setup_newversion_textcolor">#979797</color>
+    <!-- 新闻 -->
+
+    <color name="news_blue">#0066CB</color>
+    <color name="news_orange">#FF9900</color>
+    <color name="news_green">#3DCC15</color>
+
+    <!--悬赏-->
+    <color name="xuanshang">#ff5500</color>
+
+    <color name="tieba_list_order_blue">#77BFFA</color>
+    <color name="tieba_list_order_normal">#676767</color>
+
+
+    <color name="dashaung">#FF7D00</color>
+    <color name="dashang_bule">#215BFF</color>
+
+    <color name="liulan_wanbi">#5a91f5</color>
+
+    <color name="video_zhezhao">#E4C448</color>
+    <color name="video_zhezhao_fail">#1E1A17</color>
+    <color name="video_delete_pb">#947547</color>
 </resources>
