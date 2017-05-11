@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.citygeneral.MainActivity"
     android:background="@drawable/main_theall_bg">
+
 <com.example.citygeneral.view.MySlidingMenu
     android:layout_width="match_parent"
     android:layout_height="match_parent"
