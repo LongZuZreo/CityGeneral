@@ -47,6 +47,7 @@ public class FragmentFlyer {
 
     public FragmentFlyer isAddToBackStack(boolean isAddToBackStack){
         this.isAddToBackStack=isAddToBackStack;
+
         return this;
     }
 
