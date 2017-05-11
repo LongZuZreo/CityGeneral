@@ -35,14 +35,16 @@
             android:visibility="visible"/>
 
         <ImageView
-            android:src="@drawable/cover_main_add_n"
+            android:src="@drawable/add_link_page"
             android:id="@+id/more"
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
-            android:src="@drawable/ccoo_icon_mes"
+            android:src="@drawable/remian_btn"
             android:id="@+id/notification"
             android:layout_toLeftOf="@id/more"
             android:layout_width="wrap_content"

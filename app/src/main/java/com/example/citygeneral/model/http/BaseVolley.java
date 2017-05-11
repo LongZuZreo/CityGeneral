@@ -66,6 +66,7 @@ public class BaseVolley {
     }
 
     public <T> void doGetString(String url, String tag, final MyCallBack<T> mCallBack) {
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
