@@ -8,6 +8,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.citygeneral.AppApplication;
 import com.example.citygeneral.model.callback.MyCallBack;
+import com.example.citygeneral.model.entity.CityAllEntity;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -81,12 +82,9 @@ public class BaseVolley {
         AppApplication.getInstance().add(stringRequest);
     }
 
-    /*public <T> void doPostString(String url, String tag, final String params, final MyCallBack<T> mCallBack) {
-         String params1 =  params.replace(
-                "+6Hp9X5zR39SOI6oP0685Bk77gG56m7PkV89xYvl86A=",
-                "%2b6Hp9X5zR39SOI6oP0685Bk77gG56m7PkV89xYvl86A=");
+    public <T> void doPostString(String url, String tag,  final MyCallBack<T> mCallBack) {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, params1, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
                 T t = t(s, mCallBack);
@@ -100,7 +98,7 @@ public class BaseVolley {
         });
         stringRequest.setTag(tag);
         AppApplication.getInstance().add(stringRequest);
-    }*/
+    }
 
     private <T> T t(String response, MyCallBack myCallBack) {
         Gson gson = new Gson();
@@ -109,5 +107,21 @@ public class BaseVolley {
         T t = gson.fromJson(response, parameterized[0]);
         return t;
     }
+    public void doGet(String url,final MyCallBack<CityAllEntity> myCallBack){
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                CityAllEntity cityAllEntity = gson.fromJson(response, CityAllEntity.class);
+                myCallBack.onDataChanged(cityAllEntity );
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                myCallBack.onErrorHappened(error.getMessage());
+            }
+        });
 
+        AppApplication.getInstance().add(stringRequest);
+    }
 }

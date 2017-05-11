@@ -1,8 +1,12 @@
 package com.example.citygeneral;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -19,6 +23,7 @@ public class AppApplication extends Application {
     public void onCreate() {
         super.onCreate();
         queues = Volley.newRequestQueue(getApplicationContext());
+
     }
 
     public static RequestQueue getInstance() {
