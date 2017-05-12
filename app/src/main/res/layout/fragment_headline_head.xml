@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:id="@+id/mText1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/mText1"
+        android:id="@+id/mLinear">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  你好，城市游客！请先"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册或登录"
+            android:textColor="#00ffff"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  欢迎来到顺义社区(本城居民374万人)"
+        android:textColor="#CCCCCC"
+        android:textSize="14sp"
+        android:layout_below="@id/mLinear"
+        android:id="@+id/mText2"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/mText2"
+        android:id="@+id/mText3"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:id="@+id/mViewPager"
+            >
+
+        </android.support.v4.view.ViewPager>
+        <LinearLayout
+            android:id="@+id/mRoude_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="150dp"
+            android:gravity="center_horizontal">
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -35,6 +36,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RadioButton liveChinaRadio;
     public RadioGroup radioGroup;
 
+    int[] drawables=new int[]{
+      R.drawable.main_left1,  R.drawable.main_left2, R.drawable.main_left4, R.drawable.main_left5, R.drawable.main_left6, R.drawable.main_left7, R.drawable.main_left8, R.drawable.main_left9, R.drawable.main_left10, R.drawable.main_left11, R.drawable.main_left12
+    };
+    private ListView listView;
 
     @Override
     protected int getLayoutId() {
@@ -52,6 +57,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initView() {
+        listView = (ListView) findViewById(R.id.mList);
         titleBackImage = (ImageView) findViewById(R.id.user_hand);
         tabTitle = (TextView) findViewById(R.id.tab_title);
         radioGroup = (RadioGroup) findViewById(R.id.fragment_radio_group);

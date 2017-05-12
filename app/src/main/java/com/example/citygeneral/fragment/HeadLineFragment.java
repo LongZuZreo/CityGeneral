@@ -6,11 +6,15 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.androidkun.PullToRefreshRecyclerView;
 import com.example.citygeneral.AppApplication;
@@ -38,11 +42,10 @@ import java.util.List;
  * Created by ASUS on 2017/5/9.
  */
 
-public class HeadLineFragment extends BaseFragment implements HeadLineCtract.View{
+public class HeadLineFragment extends BaseFragment implements HeadLineCtract.View,AbsListView.OnScrollListener{
 
     private SlidingUpPanelLayout slidingUpPanelLayout;
     private PullToRefreshRecyclerView mPullToRefresh;
-    private ViewPager mViewPager;
     //图片的集合
     private List<ImageView> list;
     private HeadLineFragmentAdapter imageAdapter;
@@ -61,6 +64,14 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
     private List<HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean.DataBean> lineBeanList;
     private HeadLineAdapter lineAdapter;
     private HeadLineBean headLineBean;
+    //上拉刷新
+    private View footView;
+    //判断是不是最后一个
+    private boolean isLastMove;
+    //判断是不是正在加载
+    private boolean isLoadMove;
+    private int page = 1;
+    private ViewPager mViewPager;
 
     @Override
     protected int getLayoutId() {
@@ -69,7 +80,7 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
 
     @Override
     protected void loadData() {
-        presentImp.getAllList(NetUrl.APPURL,"aaa",listCreateParams());
+        presentImp.getAllList(NetUrl.APPURL,"aaa",listCreateParams(1));
     }
 
     @Override
@@ -82,16 +93,25 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
         lineBeanList = new ArrayList<>();
         lineAdapter = new HeadLineAdapter(getActivity(),lineBeanList);
         mListView.setAdapter(lineAdapter);
+
     }
 
     @Override
     protected void initView(View view) {
         slidingUpPanelLayout = (SlidingUpPanelLayout) view.findViewById(R.id.mHeadline);
-        group = (ViewGroup) view.findViewById(R.id.mRoude_dot);
-        /*mPullToRefresh = (PullToRefreshRecyclerView) view.findViewById(R.id.mPullToReFresh);*/
-        mViewPager = (ViewPager) view.findViewById(R.id.mViewPager);
-        mListView = (ListView) view.findViewById(R.id.mListView);
 
+        /*mPullToRefresh = (PullToRefreshRecyclerView) view.findViewById(R.id.mPullToReFresh);*/
+       // mViewPager = (ViewPager) view.findViewById(R.id.mViewPager);
+        mListView = (ListView) view.findViewById(R.id.mListView);
+        //上拉刷新的布局
+        footView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_headline_listview_footview, null);
+        mListView.addFooterView(footView);
+        mListView.removeFooterView(footView);
+        mListView.setOnScrollListener(this);
+        View headView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_headline_head, null);
+        mViewPager = (ViewPager) headView.findViewById(R.id.mViewPager);
+        group = (ViewGroup) headView.findViewById(R.id.mRoude_dot);
+        mListView.addHeaderView(headView);
     }
 
     public void getImageView(){
@@ -196,6 +216,18 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
 
             }
         });
+        mListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean.DataBean dataBean = lineBeanList.get(position);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     @Override
@@ -216,11 +248,12 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
     }
 
     //头条今日前的请求
-    private String listCreateParams() {
+    private String listCreateParams(int page) {
+
         JSONObject jo = new JSONObject();
         try {
             jo.put("siteID", 1);//动态获取
-            jo.put("page", 1);
+            jo.put("page", page);
             jo.put("pageSize", 10);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -241,6 +274,10 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
                 List<HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean.DataBean> data = infoBean.getData();
                 lineBeanList.addAll(data);
                 lineAdapter.notifyDataSetChanged();
+                isLoadMove = false;
+                if(mListView.getFooterViewsCount()!=0){
+                    mListView.removeFooterView(footView);
+                }
             }
         }
 
@@ -285,5 +322,25 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
     @Override
     public void changeTitleBar() {
 
+    }
+    //上拉加载的监听
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        if(SCROLL_STATE_IDLE ==scrollState &&isLastMove && !isLoadMove){
+            isLoadMove = true;
+            mListView.addFooterView(footView);
+
+            presentImp.getAllList(NetUrl.APPURL,"aaa",listCreateParams(page++));
+
+        }
+    }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        if(firstVisibleItem + visibleItemCount == totalItemCount){
+        isLastMove = true;
+        }else{
+            isLastMove = false;
+        }
     }
 }
