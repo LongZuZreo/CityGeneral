@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.citygeneral.activity.LoginActivity;
 import com.example.citygeneral.base.BaseActivity;
 import com.example.citygeneral.base.BaseFragment;
 import com.example.citygeneral.base.FragmentFlyer;
@@ -98,6 +99,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.findBtn:
                 break;
             case R.id.user_hand:
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.tab_title:
                 Intent intentCitys = new Intent(MainActivity.this,
