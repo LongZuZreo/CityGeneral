@@ -106,14 +106,7 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
 
         /*mPullToRefresh = (PullToRefreshRecyclerView) view.findViewById(R.id.mPullToReFresh);*/
        // mViewPager = (ViewPager) view.findViewById(R.id.mViewPager);
-        findWork = (RadioButton) view.findViewById(R.id.mfragmentlistview_findWord);
-        findWork.setOnClickListener(this);
-        findHouse = (RadioButton) view.findViewById(R.id.mfragmentlistview_findHouse);
-        findHouse.setOnClickListener(this);
-        findLive = (RadioButton) view.findViewById(R.id.mfragmentlistview_findLive);
-        findLive.setOnClickListener(this);
-        citySay = (RadioButton) view.findViewById(R.id.mfragmentlistview_CitySay);
-        citySay.setOnClickListener(this);
+
         mListView = (ListView) view.findViewById(R.id.mListView);
         //上拉刷新的布局
         footView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_headline_listview_footview, null);
@@ -122,6 +115,14 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
         mListView.setOnScrollListener(this);
         View headView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_headline_head, null);
         mViewPager = (ViewPager) headView.findViewById(R.id.mViewPager);
+        findWork = (RadioButton) headView.findViewById(R.id.mfragmentlistview_findWord);
+        findWork.setOnClickListener(this);
+        findHouse = (RadioButton) headView.findViewById(R.id.mfragmentlistview_findHouse);
+        findHouse.setOnClickListener(this);
+        findLive = (RadioButton) headView.findViewById(R.id.mfragmentlistview_findLive);
+        findLive.setOnClickListener(this);
+        citySay = (RadioButton) headView.findViewById(R.id.mfragmentlistview_CitySay);
+        citySay.setOnClickListener(this);
         group = (ViewGroup) headView.findViewById(R.id.mRoude_dot);
         mListView.addHeaderView(headView);
     }
