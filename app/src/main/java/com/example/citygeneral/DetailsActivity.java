@@ -14,6 +14,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.example.citygeneral.base.BaseActivity;
 
@@ -27,6 +28,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     private ImageView mShareImage;
     private Button mSendBtn;
     private View view;
+    private TextView mShare;
+    private TextView mCollect;
 
     @Override
     protected int getLayoutId() {
@@ -40,6 +43,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         mSendBtn = (Button) findViewById(R.id.mWebView_sendBtn);
         //popupwond的布局
         view = LayoutInflater.from(this).inflate(R.layout.activity_details_popupwindow, null);
+        mShare = (TextView) view.findViewById(R.id.mWebView_share_share_share);
+        mCollect = (TextView) view.findViewById(R.id.mWebView_share_share_collect);
     }
 
     @Override
@@ -86,6 +91,10 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                 popupWindow.setOutsideTouchable(true);
                 popupWindow.showAtLocation(view, Gravity.BOTTOM,310,1210);
 
+                break;
+            case R.id.mWebView_share_share_share:
+                break;
+            case R.id.mWebView_share_share_collect:
                 break;
         }
     }

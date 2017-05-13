@@ -1,7 +1,7 @@
 package com.example.citygeneral.fragment;
 
 import android.annotation.TargetApi;
-import android.app.Fragment;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
@@ -14,21 +14,19 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.RadioButton;
 
 import com.androidkun.PullToRefreshRecyclerView;
+import com.example.citygeneral.view.ActivityUtils;
 import com.example.citygeneral.AppApplication;
 import com.example.citygeneral.R;
 import com.example.citygeneral.adapter.HeadLineAdapter;
 import com.example.citygeneral.adapter.HeadLineFragmentAdapter;
 import com.example.citygeneral.base.BaseFragment;
 import com.example.citygeneral.contract.HeadLineCtract;
-import com.example.citygeneral.model.callback.MyCallBack;
 import com.example.citygeneral.model.entity.HeadLineBean;
-import com.example.citygeneral.model.http.BaseVolley;
 import com.example.citygeneral.model.http.Parameter;
 import com.example.citygeneral.present.HeadLinePresentImp;
-import com.example.citygeneral.utils.CityApp;
 import com.example.citygeneral.utils.NetUrl;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
@@ -72,6 +70,11 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
     private boolean isLoadMove;
     private int page = 1;
     private ViewPager mViewPager;
+    private RadioButton findWork;
+    private RadioButton findHouse;
+    private RadioButton findLive;
+    private RadioButton citySay;
+    private Intent intent;
 
     @Override
     protected int getLayoutId() {
@@ -79,7 +82,7 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
     }
 
     @Override
-    protected void loadData() {
+    protected void loadData() {//
         presentImp.getAllList(NetUrl.APPURL,"aaa",listCreateParams(1));
     }
 
@@ -94,6 +97,7 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
         lineAdapter = new HeadLineAdapter(getActivity(),lineBeanList);
         mListView.setAdapter(lineAdapter);
 
+
     }
 
     @Override
@@ -102,6 +106,14 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
 
         /*mPullToRefresh = (PullToRefreshRecyclerView) view.findViewById(R.id.mPullToReFresh);*/
        // mViewPager = (ViewPager) view.findViewById(R.id.mViewPager);
+        findWork = (RadioButton) view.findViewById(R.id.mfragmentlistview_findWord);
+        findWork.setOnClickListener(this);
+        findHouse = (RadioButton) view.findViewById(R.id.mfragmentlistview_findHouse);
+        findHouse.setOnClickListener(this);
+        findLive = (RadioButton) view.findViewById(R.id.mfragmentlistview_findLive);
+        findLive.setOnClickListener(this);
+        citySay = (RadioButton) view.findViewById(R.id.mfragmentlistview_CitySay);
+        citySay.setOnClickListener(this);
         mListView = (ListView) view.findViewById(R.id.mListView);
         //上拉刷新的布局
         footView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_headline_listview_footview, null);
@@ -341,6 +353,41 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
         isLastMove = true;
         }else{
             isLastMove = false;
+        }
+    }
+
+    private String creatParamsSign() {
+        JSONObject jo = new JSONObject();
+        try {
+            jo.put("siteID", 2422);
+            jo.put("userID", 28859905);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        final String params = Parameter.createnewsParam(
+                NetUrl.PHSocket_GetUserSign, jo);
+        return params;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.mfragmentlistview_findWord:
+                intent = new Intent(getActivity(), ActivityUtils.class);
+                startActivity(intent);
+                break;
+            case R.id.mfragmentlistview_findHouse:
+                intent = new Intent(getActivity(), ActivityUtils.class);
+                startActivity(intent);
+                break;
+            case R.id.mfragmentlistview_findLive:
+                intent = new Intent(getActivity(), ActivityUtils.class);
+                startActivity(intent);
+                break;
+            case R.id.mfragmentlistview_CitySay:
+                intent = new Intent(getActivity(), ActivityUtils.class);
+                startActivity(intent);
+                break;
         }
     }
 }
