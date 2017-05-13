@@ -12,7 +12,7 @@
 <com.example.citygeneral.view.MySlidingMenu
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    my:rightContentWidth="135dp"
+    my:rightContentWidth="145dp"
     android:background="@drawable/main_theall_bg"
   >
     <LinearLayout

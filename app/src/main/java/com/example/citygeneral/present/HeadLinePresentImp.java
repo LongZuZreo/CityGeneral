@@ -17,7 +17,7 @@ public class HeadLinePresentImp implements HeadLineCtract.Presenter{
 
     @Override
     public void getAllList(String url, String tag, String params) {
-        BaseVolley.getInstance().doPostString(url, tag, params, new MyCallBack<HeadLineBean>() {
+        BaseVolley.getInstance().doReplacePostString(url, tag, params, new MyCallBack<HeadLineBean>() {
             @Override
             public void onDataChanged(HeadLineBean data) {
                 view.loadHeadLine(data);

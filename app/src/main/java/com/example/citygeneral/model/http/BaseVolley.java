@@ -37,7 +37,7 @@ public class BaseVolley {
         return baseVolley;
     }
 
-    public <T> void doPostString(String url, String tag,  String params, final MyCallBack<T> mCallBack) {
+    public <T> void doReplacePostString(String url, String tag, String params, final MyCallBack<T> mCallBack) {
             final String param =  params.replace(
                     "+6Hp9X5zR39SOI6oP0685Bk77gG56m7PkV89xYvl86A=",
                     "%2b6Hp9X5zR39SOI6oP0685Bk77gG56m7PkV89xYvl86A=");
@@ -83,7 +83,7 @@ public class BaseVolley {
         AppApplication.getInstance().add(stringRequest);
     }
 
-    public <T> void doPostString(String url, String tag,  final MyCallBack<T> mCallBack) {
+    public <T> void doPostString(String url, String tag,String params, final MyCallBack<T> mCallBack) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override

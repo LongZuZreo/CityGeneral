@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/left_menu_layout"
     android:background="#00FFFFFF">
 
     <RelativeLayout
+        android:id="@+id/user_user_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
@@ -87,16 +89,34 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorGray"/>
-    <ListView
-        android:id="@+id/mList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </ListView>
-    <RelativeLayout
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+   <include layout="@layout/left_menu_item"/>
+    </ScrollView>
 
-    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:drawableLeft="@drawable/mainccooactivity_icon_set"
+            android:textColor="@color/text_befor"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="商务合作"
+            android:drawableLeft="@drawable/mainccooactivity_icon_set"
+            android:textColor="@color/text_befor"
+            android:textSize="18sp"/>
+    </LinearLayout>
 
 
 </LinearLayout>
