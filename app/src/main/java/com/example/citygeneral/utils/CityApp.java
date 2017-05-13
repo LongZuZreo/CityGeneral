@@ -25,12 +25,15 @@ public class CityApp extends MultiDexApplication {
     public static String BANBEN = "Android " + android.os.Build.VERSION.RELEASE;
     public static String PHONEID = "";
     public static String PHONENUM = "0";
-
+    public static String ip = "";
     @Override
     public void onCreate() {
         super.onCreate();
 
-
+        /**
+         * 获取ip
+         * */
+        new AsyncGetNetIp(new getmyip()).execute("");
         /**
          * 获取手机唯一标示
          * */
@@ -98,5 +101,20 @@ public class CityApp extends MultiDexApplication {
             type = 0;
         }
         return type;
+    }
+
+    private class getmyip implements AsyncGetNetIp.getIP {
+        @Override
+        public void setIP(String ip) {
+            setIp(ip);
+        }
+    }
+
+    public static String getIp() {
+        return ip;
+    }
+
+    public static void setIp(String ip) {
+        CityApp.ip = ip;
     }
 }

@@ -20,12 +20,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CityChoiceActivity"></activity>
-        <activity android:name=".CitiesActivity"></activity>
-        <activity android:name=".view.ActivityUtils"/>
-        <activity android:name=".view.FirstActivity"/>
-        //头条详情页
-        <activity android:name=".DetailsActivity"></activity>>
+        <activity android:name=".CityChoiceActivity" />
+        <activity android:name=".CitiesActivity" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="YQe6xSR7zOVLkPKEe9zsCgAX8kcPYnOW" />
+
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.LoginActivity"></activity>
     </application>
 
 </manifest>
