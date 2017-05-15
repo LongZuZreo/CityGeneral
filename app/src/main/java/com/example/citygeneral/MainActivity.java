@@ -17,11 +17,6 @@ import com.example.citygeneral.fragment.HeadLineFragment;
 import com.example.citygeneral.model.http.BaseVolley;
 import com.example.citygeneral.model.http.Parameter;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     public static BaseFragment currentFragment;
@@ -30,7 +25,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static final int PERSON_OR_INTERTACT = 3;
     public static final int EDIT_TITLE = 4;
     public static final int RIGHT_TYPE = 5;
-    @BindView(R.id.left_menu_layout)
     LinearLayout leftMenuLayout;
 
     private ImageView titleBackImage;
@@ -68,6 +62,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         liveRadio = (RadioButton) findViewById(R.id.liveBtn);
         liveChinaRadio = (RadioButton) findViewById(R.id.findBtn);
         BaseVolley baseVolley = BaseVolley.getInstance();
+        leftMenuLayout= (LinearLayout) findViewById(R.id.left_menu_layout);
+        leftMenuLayout.setOnClickListener(this);
     }
 
     @Override
@@ -106,6 +102,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         CityChoiceActivity.class);
                 startActivity(intentCitys);
                 break;
+            case R.id.left_menu_layout:
+                Intent intent=new Intent(this,UserInfoActivity.class);
+                break;
         }
     }
 
@@ -116,17 +115,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         System.exit(0);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
-    @OnClick(R.id.left_menu_layout)
-    public void onViewClicked() {
-
-
-    }
 }
 
