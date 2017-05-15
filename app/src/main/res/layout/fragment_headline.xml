@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    sothree:umanoPanelHeight="400dp"
+    sothree:umanoPanelHeight="340dp"
     sothree:umanoShadowHeight="4dp"
     android:gravity="bottom"
     android:id="@+id/mHeadline"

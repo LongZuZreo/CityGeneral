@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Process;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -17,9 +16,6 @@ import com.example.citygeneral.fragment.HeadLineFragment;
 import com.example.citygeneral.model.http.BaseVolley;
 import com.example.citygeneral.model.http.Parameter;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -30,8 +26,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static final int PERSON_OR_INTERTACT = 3;
     public static final int EDIT_TITLE = 4;
     public static final int RIGHT_TYPE = 5;
-    @BindView(R.id.left_menu_layout)
-    LinearLayout leftMenuLayout;
+
+  ;
 
     private ImageView titleBackImage;
     private TextView tabTitle;
@@ -120,13 +116,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
-
-    @OnClick(R.id.left_menu_layout)
-    public void onViewClicked() {
-
 
     }
+
+
 }
 
