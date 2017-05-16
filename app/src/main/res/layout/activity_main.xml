@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.citygeneral.MainActivity"
-
     >
 
 
@@ -83,66 +82,66 @@
                 android:layout_weight="1">
 
             </FrameLayout>
-            <RadioGroup
-                android:id="@+id/fragment_radio_group"
+            <LinearLayout
+                android:id="@+id/fragment_radio_linear"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal"
                 android:paddingTop="5dp"
                 android:weightSum="5">
 
-                <RadioButton
+                <TextView
                     android:checked="true"
                     android:id="@+id/hotBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:drawableTop="@drawable/tab_host_selector"
+
                     android:gravity="center_horizontal"
                     android:text="头条" />
 
-                <RadioButton
+                <TextView
                     android:id="@+id/naoBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:drawableTop="@drawable/tab_naonao_selector"
+
                     android:gravity="center_horizontal"
                     android:text="闹闹" />
 
-                <RadioButton
+                <TextView
                     android:id="@+id/communityBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:drawableTop="@drawable/tab_community_selector"
+
                     android:gravity="center_horizontal"
                     android:text="社区" />
 
-                <RadioButton
+                <TextView
                     android:id="@+id/liveBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:drawableTop="@drawable/tab_live_selector"
+
                     android:gravity="center_horizontal"
                     android:text="生活" />
 
-                <RadioButton
+                <TextView
                     android:id="@+id/findBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:drawableTop="@drawable/tab_find_selector"
+
                     android:gravity="center_horizontal"
                     android:text="发现" />
 
-            </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </com.example.citygeneral.view.MySlidingMenu>

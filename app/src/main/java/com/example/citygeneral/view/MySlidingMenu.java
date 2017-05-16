@@ -8,20 +8,16 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
+import android.widget.Toast;
 
 
 import com.example.citygeneral.R;
 import com.nineoldandroids.view.ViewHelper;
-
-import static android.support.v7.widget.StaggeredGridLayoutManager.TAG;
-import static android.view.MotionEvent.ACTION_DOWN;
-import static android.view.MotionEvent.ACTION_UP;
 
 /**
  * Created by 张志远 on 2017/5/9.
@@ -115,9 +111,12 @@ public class MySlidingMenu extends HorizontalScrollView {
 
     int lastYIntercept;
 
+    boolean notIntercept;
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         super.onInterceptTouchEvent(ev);
+
         boolean intercept=false;
         int x= (int) ev.getX();
         int y = (int) ev.getY();
@@ -125,8 +124,13 @@ public class MySlidingMenu extends HorizontalScrollView {
             case MotionEvent.ACTION_DOWN:
                 lastXIntercept=x;
                 lastYIntercept=y;
-                intercept=false;
-
+                intercept = false;
+                if (x>10){
+                    notIntercept =true;
+                }else{
+                    notIntercept =false;
+                }
+                Log.d("123", "x:" + x);
                 break;
             case MotionEvent.ACTION_MOVE:
                 final int deltaX=x-lastXIntercept;
@@ -134,6 +138,11 @@ public class MySlidingMenu extends HorizontalScrollView {
                 Log.d("123","onInterceptTouchEvent: "+Math.abs(deltaX)+"----------------"+Math.abs(deltaY));
                 if (Math.abs(deltaX)>Math.abs(deltaY)+5){
                     intercept=true;
+                    if (!isOpen) {
+                        if (notIntercept) {
+                            return false;
+                        }
+                    }
                 }else{
                     intercept=false;
                 }
@@ -150,11 +159,6 @@ public class MySlidingMenu extends HorizontalScrollView {
     public boolean onTouchEvent(MotionEvent event) {
 
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-
-                break;
-            case MotionEvent.ACTION_MOVE:
-                break;
             case MotionEvent.ACTION_UP:
 
                 int scrollx=getScrollX();

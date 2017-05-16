@@ -80,6 +80,7 @@ public class FragmentFlyer {
 
             transaction.addToBackStack(fragmentName);
 
+            isAddToBackStack=false;
         }
         lastFragment=fragment;
 
@@ -87,10 +88,6 @@ public class FragmentFlyer {
         return this;
     }
 
-    public FragmentFlyer addToStack(){
-
-        return this;
-    }
     public Fragment build(){
         return lastFragment;
     }
