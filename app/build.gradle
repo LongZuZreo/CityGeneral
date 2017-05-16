@@ -3,6 +3,19 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INFTICE.txt'
+        exclude 'META-INFTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INFtice.txt'
+        exclude 'META-INFcense.txt'
+        exclude 'META-INF/dependencies.txt'
+    }
+
     defaultConfig {
         applicationId "com.example.citygeneral"
         minSdkVersion 16

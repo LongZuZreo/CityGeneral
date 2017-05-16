@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Process;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.example.citygeneral.base.BaseActivity;
 import com.example.citygeneral.base.BaseFragment;
 import com.example.citygeneral.base.FragmentFlyer;
+import com.example.citygeneral.fragment.FindFragment;
 import com.example.citygeneral.fragment.HeadLineFragment;
 import com.example.citygeneral.model.http.BaseVolley;
 import com.example.citygeneral.model.http.Parameter;
@@ -27,7 +29,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static final int EDIT_TITLE = 4;
     public static final int RIGHT_TYPE = 5;
 
-  ;
+    LinearLayout leftMenuLayout;
 
     private ImageView titleBackImage;
     private TextView tabTitle;
@@ -94,6 +96,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.liveBtn:
                 break;
             case R.id.findBtn:
+                FragmentFlyer.getInstance(this).setLayoutId(R.id.mFram).startFragment(FindFragment.class).addToStack().build();
                 break;
             case R.id.user_hand:
                 break;
@@ -111,14 +114,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         Process.killProcess(Process.myPid());
         System.exit(0);
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-
-    }
-
-
 }
 
