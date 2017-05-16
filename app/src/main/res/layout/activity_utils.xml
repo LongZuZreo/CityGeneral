@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/cover_main_add_n"
+                android:button="@null"
+                android:text="找工作"
+                android:textSize="24sp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/mfragmentlistview_findWord"
+                android:layout_weight="1"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/cover_main_add_n"
+                android:button="@null"
+                android:text="找房子"
+                android:textSize="24sp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/mfragmentlistview_findHouse"
+                android:layout_weight="1"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/cover_main_add_n"
+                android:button="@null"
+                android:text="分类生活"
+                android:textSize="24sp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/mfragmentlistview_findLive"
+                android:layout_weight="1"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/cover_main_add_n"
+                android:button="@null"
+                android:text="同城爆料"
+                android:textSize="24sp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/mfragmentlistview_CitySay"
+                android:layout_weight="1"/>
+        </RadioGroup>
+    </RelativeLayout>
+
+</LinearLayout>

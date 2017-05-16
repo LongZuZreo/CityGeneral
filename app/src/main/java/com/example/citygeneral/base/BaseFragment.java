@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  * Created by hp1 on 2017-05-08.
  */
 
-public abstract class BaseFragment extends Fragment{
+public abstract class BaseFragment extends Fragment implements View.OnClickListener{
     protected Bundle bundle;
 
     @Nullable

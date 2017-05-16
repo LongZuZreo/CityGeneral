@@ -14,8 +14,13 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.example.citygeneral.base.BaseActivity;
+import com.example.citygeneral.view.ShareActivity;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 
 /**
  * Created by ASUS on 2017/5/11.
@@ -27,6 +32,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     private ImageView mShareImage;
     private Button mSendBtn;
     private View view;
+    private TextView mShare;
+    private TextView mCollect;
 
     @Override
     protected int getLayoutId() {
@@ -40,6 +47,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         mSendBtn = (Button) findViewById(R.id.mWebView_sendBtn);
         //popupwond的布局
         view = LayoutInflater.from(this).inflate(R.layout.activity_details_popupwindow, null);
+        mShare = (TextView) view.findViewById(R.id.mWebView_share_share_share);
+        mCollect = (TextView) view.findViewById(R.id.mWebView_share_share_collect);
     }
 
     @Override
@@ -71,6 +80,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     protected void initListener() {
         mSendBtn.setOnClickListener(this);
         mShareImage.setOnClickListener(this);
+        mShare.setOnClickListener(this);
+        mCollect.setOnClickListener(this);
     }
 
     @Override
@@ -87,10 +98,41 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                 popupWindow.showAtLocation(view, Gravity.BOTTOM,310,1210);
 
                 break;
+            case R.id.mWebView_share_share_share:
+               /* Intent intent = new Intent(this, ShareActivity.class);
+                startActivity(intent);*/
+                new ShareAction(this).withText("你好！")
+                        .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN)
+                        .setCallback(umShareListener).open();
+
+                break;
+            case R.id.mWebView_share_share_collect:
+                break;
         }
     }
     public int px2dpValue(int dpValue){
         int value = (int) (getResources().getDisplayMetrics().density*dpValue + 0.5f);
         return value;
     }
+    UMShareListener umShareListener = new UMShareListener() {
+        @Override
+        public void onStart(SHARE_MEDIA share_media) {
+
+        }
+
+        @Override
+        public void onResult(SHARE_MEDIA share_media) {
+
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA share_media, Throwable throwable) {
+
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA share_media) {
+
+        }
+    };
 }

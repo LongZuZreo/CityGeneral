@@ -21,7 +21,8 @@
             android:text="分享"
             android:layout_toRightOf="@id/mWebView_share_share_image"
             android:layout_marginTop="20dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/mWebView_share_share_share"/>
     </RelativeLayout>
     <TextView
         android:layout_width="match_parent"
@@ -40,6 +41,7 @@
             android:layout_marginTop="10dp"
             android:id="@+id/mWebView_share_collect_image"/>
         <TextView
+            android:id="@+id/mWebView_share_share_collect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"

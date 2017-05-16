@@ -1,22 +1,23 @@
 package com.example.citygeneral;
 
 import android.content.Intent;
-import android.os.Process;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.os.Process;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.citygeneral.activity.LoginActivity;
 import com.example.citygeneral.base.BaseActivity;
 import com.example.citygeneral.base.BaseFragment;
 import com.example.citygeneral.base.FragmentFlyer;
+import com.example.citygeneral.fragment.FindFragment;
 import com.example.citygeneral.fragment.HeadLineFragment;
+import com.example.citygeneral.model.http.BaseVolley;
+import com.example.citygeneral.model.http.Parameter;
+
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -24,9 +25,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static BaseFragment currentFragment;
     public static final int HOME_TITLE = 1;
     public static final int OTHER_TITLE = 2;
-    public static final int PERSON_OR_INTERTACT=3;
-    public static final int EDIT_TITLE=4;
-    public static final int RIGHT_TYPE=5;
+    public static final int PERSON_OR_INTERTACT = 3;
+    public static final int EDIT_TITLE = 4;
+    public static final int RIGHT_TYPE = 5;
+
+    LinearLayout leftMenuLayout;
 
     private ImageView titleBackImage;
     private TextView tabTitle;
@@ -37,14 +40,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RadioButton liveChinaRadio;
     public RadioGroup radioGroup;
 
-    int[] drawables=new int[]{
-      R.drawable.main_left1,  R.drawable.main_left2, R.drawable.main_left4, R.drawable.main_left5, R.drawable.main_left6, R.drawable.main_left7, R.drawable.main_left8, R.drawable.main_left9, R.drawable.main_left10, R.drawable.main_left11, R.drawable.main_left12
-    };
-    private ListView listView;
 
     @Override
     protected int getLayoutId() {
-        if(getSupportActionBar().isShowing()){
+        if (getSupportActionBar().isShowing()) {
             getSupportActionBar().hide();
         }
         FragmentFlyer.getInstance(this).setLayoutId(R.id.mFram).isAddToBackStack(true).startFragment(HeadLineFragment.class).build();
@@ -58,7 +57,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initView() {
-        listView = (ListView) findViewById(R.id.mList);
         titleBackImage = (ImageView) findViewById(R.id.user_hand);
         tabTitle = (TextView) findViewById(R.id.tab_title);
         radioGroup = (RadioGroup) findViewById(R.id.fragment_radio_group);
@@ -67,6 +65,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         cultureRadio = (RadioButton) findViewById(R.id.communityBtn);
         liveRadio = (RadioButton) findViewById(R.id.liveBtn);
         liveChinaRadio = (RadioButton) findViewById(R.id.findBtn);
+        BaseVolley baseVolley = BaseVolley.getInstance();
     }
 
     @Override
@@ -97,10 +96,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.liveBtn:
                 break;
             case R.id.findBtn:
+                FragmentFlyer.getInstance(this).setLayoutId(R.id.mFram).startFragment(FindFragment.class).addToStack().build();
                 break;
             case R.id.user_hand:
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
                 break;
             case R.id.tab_title:
                 Intent intentCitys = new Intent(MainActivity.this,
@@ -113,7 +111,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        android.os.Process.killProcess(Process.myPid());
+        Process.killProcess(Process.myPid());
         System.exit(0);
     }
 }

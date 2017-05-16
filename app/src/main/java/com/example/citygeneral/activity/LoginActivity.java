@@ -20,7 +20,6 @@ import android.widget.Toast;
 import com.example.citygeneral.R;
 import com.example.citygeneral.base.BaseActivity;
 import com.example.citygeneral.model.callback.MyCallBack;
-import com.example.citygeneral.model.entity.City;
 import com.example.citygeneral.model.entity.UserLogin;
 import com.example.citygeneral.model.http.BaseVolley;
 import com.example.citygeneral.model.http.Parameter;
@@ -217,7 +216,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                                 InputMethodManager.HIDE_NOT_ALWAYS);
                         String params = ReplyParams(username.replace(" ", ""),
                                 userpasswrad.replace(" ", ""));
-                        BaseVolley.getInstance().doPostString(NetUrl.APPURL, "",params, new MyCallBack<UserLogin>() {
+                        BaseVolley.getInstance().doReplacePostString(NetUrl.APPURL, "",params, new MyCallBack<UserLogin>() {
                             @Override
                             public void onDataChanged(UserLogin data) {
                                finish();

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
@@ -18,6 +19,7 @@ import android.widget.Scroller;
 import com.example.citygeneral.R;
 import com.nineoldandroids.view.ViewHelper;
 
+import static android.support.v7.widget.StaggeredGridLayoutManager.TAG;
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_UP;
 
@@ -42,9 +44,9 @@ public class MySlidingMenu extends HorizontalScrollView {
     private boolean once;
 
     private boolean isOpen;
-    private int x;
-    private int y;
+
     private Scroller mScroller;
+
     private VelocityTracker mVelocityTracker;
 
 
@@ -54,6 +56,7 @@ public class MySlidingMenu extends HorizontalScrollView {
 
     public MySlidingMenu(Context context, AttributeSet attrs) {
         this(context, attrs,0);
+
     }
 
     public MySlidingMenu(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -91,7 +94,6 @@ public class MySlidingMenu extends HorizontalScrollView {
         a.recycle();
     }
 
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
@@ -109,22 +111,51 @@ public class MySlidingMenu extends HorizontalScrollView {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
+    int lastXIntercept;
+
+    int lastYIntercept;
+
     @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
-        if (changed){
-            this.scrollTo(mMenuWidth,0);
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        super.onInterceptTouchEvent(ev);
+        boolean intercept=false;
+        int x= (int) ev.getX();
+        int y = (int) ev.getY();
+        switch (ev.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                lastXIntercept=x;
+                lastYIntercept=y;
+                intercept=false;
 
-
-            isOpen=false;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                final int deltaX=x-lastXIntercept;
+                final int deltaY=y-lastYIntercept;
+                Log.d("123","onInterceptTouchEvent: "+Math.abs(deltaX)+"----------------"+Math.abs(deltaY));
+                if (Math.abs(deltaX)>Math.abs(deltaY)+5){
+                    intercept=true;
+                }else{
+                    intercept=false;
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                intercept=false;
+                break;
         }
+
+        Log.d("123", "intercept:" + intercept);
+        return intercept;
     }
     @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        int action=ev.getAction();
+    public boolean onTouchEvent(MotionEvent event) {
 
-        switch (action){
-            case ACTION_UP:
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+
+                break;
+            case MotionEvent.ACTION_MOVE:
+                break;
+            case MotionEvent.ACTION_UP:
 
                 int scrollx=getScrollX();
 
@@ -137,10 +168,19 @@ public class MySlidingMenu extends HorizontalScrollView {
                     isOpen=true;
                     return true;
                 }
-                default:
-                    break;
         }
-        return super.onTouchEvent(ev);
+        return  super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        if (changed){
+            this.scrollTo(mMenuWidth,0);
+
+
+            isOpen=false;
+        }
     }
     private void openMenu(){
         if (isOpen){
