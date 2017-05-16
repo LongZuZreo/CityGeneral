@@ -1,0 +1,882 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gray_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lay"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="标题"
+            android:textColor="@color/color_333"
+            android:textSize="18dp" />
+
+        <RelativeLayout
+            android:id="@+id/main_fatieshuoming"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/shuoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="你确定要发布投票贴吗？"
+                android:textColor="@color/color_333"
+                android:textSize="14dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_rlay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="退出后部分功能将无法使用"
+                android:textColor="@color/color_333"
+                android:textSize="14dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cover_link_rlay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/coverlink_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="此频道只允许女生发布照片！"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/coverlink_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/coverlink_text1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="男生请进入帅男秀场发布"
+                android:textColor="@color/blue"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/edit_rlay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/edit"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/setup_dialog_edit_selector"
+                android:hint="请输入4-20个字符"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:padding="6dp"
+                android:singleLine="true"
+                android:textColor="@color/color_333"
+                android:textColorHint="@color/color_ccc"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/age_rlay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <DatePicker
+                android:id="@+id/datepicker"
+                android:layout_width="fill_parent"
+                android:layout_height="130dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sex_rlay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/line10"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/man_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line10"
+                android:background="@drawable/my_listview_selector">
+
+                <ImageView
+                    android:id="@+id/man_image"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/regist_man_check" />
+
+                <TextView
+                    android:id="@+id/man_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/man_image"
+                    android:text="男"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/mancheck_image"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_noral" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line20"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/man_relay"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/woman_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line20">
+
+                <ImageView
+                    android:id="@+id/woman_image"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/regist_woman_check" />
+
+                <TextView
+                    android:id="@+id/woman_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/woman_image"
+                    android:text="女"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/womancheck_image"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_noral" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/head_rlay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/line11"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/photograph_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line11"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:text="拍照" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line21"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/photograph_relay"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/album_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line21"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/album"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="相册" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/heightweight_rlay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:id="@+id/height_relay"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/setup_dialog_edit_shape1">
+
+                <EditText
+                    android:id="@+id/height_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="5dp"
+                    android:layout_toLeftOf="@+id/view1"
+                    android:background="@color/transparent"
+                    android:inputType="number" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_toLeftOf="@+id/cm"
+                    android:background="@color/gray_bg" />
+
+                <TextView
+                    android:id="@+id/cm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="6dp"
+                    android:text="cm"
+                    android:textColor="@color/color_999" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/weight_relay"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/setup_dialog_edit_shape1">
+
+                <EditText
+                    android:id="@+id/weight_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="5dp"
+                    android:layout_toLeftOf="@+id/view"
+                    android:background="@color/transparent"
+                    android:inputType="number" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_toLeftOf="@+id/kg"
+                    android:background="@color/gray_bg" />
+
+                <TextView
+                    android:id="@+id/kg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:text="kg"
+                    android:textColor="@color/color_999" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/fontsize_rlay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/line1"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/small_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line1"
+                android:background="@drawable/my_listview_selector">
+
+                <TextView
+                    android:id="@+id/small_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="小"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/smallcheck_image"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_press" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line22"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/small_relay"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/medium_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line22"
+                android:background="@drawable/my_listview_selector">
+
+                <TextView
+                    android:id="@+id/mid_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="中"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/mediumcheck_image"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_noral" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line33"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/medium_relay"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/big_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line33"
+                android:background="@drawable/my_listview_selector">
+
+                <TextView
+                    android:id="@+id/big_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="大"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/bigcheck_image"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_noral" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/jubao_relay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/line111"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/jubao_relay1"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line111"
+                android:background="@drawable/my_listview_selector">
+
+                <TextView
+                    android:id="@+id/jubao_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="色情、暴力"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/jubaocheck_image1"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_press" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line222"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/jubao_relay1"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/jubao_relay2"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line222"
+                android:background="@drawable/my_listview_selector">
+
+                <TextView
+                    android:id="@+id/jubao_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="诈骗"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/jubaocheck_image2"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_noral" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line3333"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/jubao_relay2"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/jubao_relay3"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line3333"
+                android:background="@drawable/my_listview_selector">
+
+                <TextView
+                    android:id="@+id/jubao_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="与主题不相关"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/jubaocheck_image3"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_noral" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line40"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/jubao_relay3"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/jubao_relay4"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line40"
+                android:background="@drawable/my_listview_selector">
+
+                <TextView
+                    android:id="@+id/jubao_text4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="头像昵称非法"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/jubaocheck_image4"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_noral" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line50"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/jubao_relay4"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/jubao_relay5"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/line50"
+                android:background="@drawable/my_listview_selector">
+
+                <TextView
+                    android:id="@+id/jubao_text5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="其他有害"
+                    android:textColor="@color/color_333"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/jubaocheck_image5"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ccoo_icon_aite_noral" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/education_relay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/line19"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/master_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line19"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/master_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:text="硕士及以上"
+                    android:textColor="#90000000"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/mastercheck_image"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/set_right_icon_s" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line2"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/master_relay"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/graduate_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line2"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/graduate_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:text="研究生"
+                    android:textColor="#90000000"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/graduatecheck_image"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/set_right_icon_d" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line3"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/graduate_relay"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/this_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line3"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/this_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:text="本科"
+                    android:textColor="#90000000"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/thischeck_image"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/set_right_icon_d" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line4"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/this_relay"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/special_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line4"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/special_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:text="专科"
+                    android:textColor="#90000000"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/specialcheck_image"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/set_right_icon_d" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line5"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@id/special_relay"
+                android:layout_marginTop="6dp"
+                android:background="@color/grayline" />
+
+            <RelativeLayout
+                android:id="@+id/high_relay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line5"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/high_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:text="高中"
+                    android:textColor="#90000000"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/highcheck_image"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/set_right_icon_d" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/grayline" />
+
+        <LinearLayout
+            android:id="@+id/buttom_relay"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp">
+
+            <TextView
+                android:id="@+id/cancle"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/my_listview_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="取消"
+                android:textColor="@color/blue"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/bottom_view"
+                android:layout_width="0.5dp"
+                android:layout_height="fill_parent"
+                android:background="@color/grayline"
+                tools:ignore="Suspicious0dp" />
+
+            <TextView
+                android:id="@+id/confirm"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/my_listview_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="确定"
+                android:textColor="@color/blue"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

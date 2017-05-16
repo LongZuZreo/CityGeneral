@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageLogo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/community"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="社区"
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/imageLogo"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/introduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="有想法 找社区"
+            android:textSize="14sp"
+            android:layout_toRightOf="@id/imageLogo"
+            android:layout_below="@id/community"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/responce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="帖子75  回复513"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/imageLogo"
+            android:layout_below="@id/introduce"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/joinBtn"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_shape"
+            android:text="加入"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grayline"/>
+
+
+</RelativeLayout>

@@ -17,6 +17,10 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.citygeneral.base.BaseActivity;
+import com.example.citygeneral.view.ShareActivity;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 
 /**
  * Created by ASUS on 2017/5/11.
@@ -76,6 +80,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     protected void initListener() {
         mSendBtn.setOnClickListener(this);
         mShareImage.setOnClickListener(this);
+        mShare.setOnClickListener(this);
+        mCollect.setOnClickListener(this);
     }
 
     @Override
@@ -93,6 +99,12 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
                 break;
             case R.id.mWebView_share_share_share:
+               /* Intent intent = new Intent(this, ShareActivity.class);
+                startActivity(intent);*/
+                new ShareAction(this).withText("你好！")
+                        .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN)
+                        .setCallback(umShareListener).open();
+
                 break;
             case R.id.mWebView_share_share_collect:
                 break;
@@ -102,4 +114,25 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         int value = (int) (getResources().getDisplayMetrics().density*dpValue + 0.5f);
         return value;
     }
+    UMShareListener umShareListener = new UMShareListener() {
+        @Override
+        public void onStart(SHARE_MEDIA share_media) {
+
+        }
+
+        @Override
+        public void onResult(SHARE_MEDIA share_media) {
+
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA share_media, Throwable throwable) {
+
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA share_media) {
+
+        }
+    };
 }

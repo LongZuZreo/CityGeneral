@@ -3,8 +3,16 @@
     package="com.example.citygeneral">
     <uses-permission android:name="android.permission.INTERNET"/>
     //webView的权限
-
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <application
         android:name=".AppApplication"
         android:allowBackup="true"
@@ -27,6 +35,17 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
+        //微信
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        //友盟appkey
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58aae0de9f06fd2d1b0007d8"></meta-data>
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
@@ -34,7 +53,8 @@
 
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.LoginActivity"></activity>
-        <activity android:name=".UserInfoActivity"/>
+        <activity android:name=".view.ShareActivity"/>
+        <activity android:name=".DetailsActivity"/>
     </application>
 
 </manifest>

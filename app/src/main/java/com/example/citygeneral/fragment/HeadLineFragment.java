@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -28,6 +29,7 @@ import com.example.citygeneral.model.entity.HeadLineBean;
 import com.example.citygeneral.model.http.Parameter;
 import com.example.citygeneral.present.HeadLinePresentImp;
 import com.example.citygeneral.utils.NetUrl;
+import com.example.citygeneral.view.MySlidingMenu;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import org.json.JSONException;
@@ -190,8 +192,7 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
             group.addView(imageView, layoutParams);
         }
     }
-
-    @Override
+   @Override
     protected void initListener() {
         slidingUpPanelLayout.addPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
             @Override
@@ -210,7 +211,6 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
-
             @Override
             public void onPageSelected(int position) {
                 imageChage = position;
@@ -222,13 +222,17 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
                 oldPosition = p;
                 /*handler.sendMessage(Message.obtain(handler,
                         ImageHandler.MSG_PAGE_CHANGED, position, 0));*/
+
+
             }
+
 
             @Override
             public void onPageScrollStateChanged(int state) {
 
             }
         });
+
         mListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -242,6 +246,8 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
             }
         });
     }
+
+
 
     @Override
     protected void show() {

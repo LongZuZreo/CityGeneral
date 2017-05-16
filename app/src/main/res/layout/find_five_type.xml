@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/allThings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="百事通"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="1.5dp"
+        android:background="@color/grayline" />
+
+    <GridView
+        android:id="@+id/thingGridView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:numColumns="4">
+
+    </GridView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/grayline"/>
+
+    <GridView
+        android:id="@+id/thingGridView2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:numColumns="4">
+
+    </GridView>
+</LinearLayout>
