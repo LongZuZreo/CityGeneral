@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" > 
+     <item android:drawable="@drawable/getcode_select_shape" android:state_pressed="false"/>
+    <item android:drawable="@drawable/getcode_select_shape" android:state_pressed="true"/>
+<!--      <item android:drawable="@drawable/btn_contact_add_01" android:state_pressed="false"/>
+    <item android:drawable="@drawable/btn_introduce_01" android:state_pressed="true"/> -->
+   <!--  <item android:state_pressed="true" android:drawable="@drawable/shape_orange_press"></item>
+    <item android:state_pressed="false" android:drawable="@drawable/shape_orange" ></item> -->
+
+</selector>

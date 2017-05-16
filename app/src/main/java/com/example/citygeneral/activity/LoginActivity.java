@@ -1,6 +1,8 @@
 package com.example.citygeneral.activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Selection;
@@ -40,6 +42,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
     private ImageView eyesImg;
     private ImageView pDl;
     private InputMethodManager imm;
+    private ImageView backImg;
 
     @Override
     protected int getLayoutId() {
@@ -48,6 +51,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void initView() {
+        backImg = (ImageView) findViewById(R.id.btn_back_login);
         editTextName = (EditText) findViewById(R.id.editText_user_login_name);
         editTextPwd = (EditText) findViewById(R.id.editText_user_login_pwd);
         loginBtn = (TextView) findViewById(R.id.button_user_login);
@@ -70,6 +74,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void initListener() {
+        backImg.setOnClickListener(this);
         loginBtn.setOnClickListener(this);
         forgetPwd.setOnClickListener(this);
         registerBtn.setOnClickListener(this);
@@ -228,6 +233,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                     }
                 }
                 break;
+            case R.id.textView_user_register:
+                Intent intent = new Intent(this,RegisterActivity.class);
+                startActivity(intent);
+                //startActivity(new Intent(this,RegisterActivity.class));
+                break;
         }
     }
     private String ReplyParams(String username, String userpwd) {
@@ -244,5 +254,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         String params = Parameter.createnewsParam(
                 NetUrl.METHOD_CheckUserLogin, jo);
         return params;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }

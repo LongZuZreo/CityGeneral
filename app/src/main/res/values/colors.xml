@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGray">#EDEDED</color>
+    <color name="gray_bg">#F0F0F0</color>
     <!-- 找工作主界面名企招聘职位、薪水背景 -->
     <color name="gray_bg01">#F5F5F5</color>
     <color name="gray_bg1">#ebebeb</color>

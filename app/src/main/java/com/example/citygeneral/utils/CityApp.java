@@ -9,6 +9,8 @@ import android.support.multidex.MultiDexApplication;
 import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
 
+import com.example.citygeneral.model.entity.City;
+
 import java.util.Date;
 
 /**
@@ -26,9 +28,30 @@ public class CityApp extends MultiDexApplication {
     public static String PHONEID = "";
     public static String PHONENUM = "0";
     public static String ip = "";
+    private static CityApp mInstance = null;
+    public static int mScreenWidth;
+    public static int mScreenHeight;
+    public static String imagePath = "";
+    public static int MAINFRAGMENT = 0;// 首页三版类型
+    public static int MAINMENU1 = 1;// 首页下方菜单类型
+    public static int MAINMENU2 = 2;// 首页下方菜单类型
+    public static int MAINMENU3 = 3;// 首页下方菜单类型
+    public static int TGISOPEN = 0;// 团购开关,group包为团购
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+
+
+
+        /**
+         * 获取手机屏幕尺寸
+         * */
+        mScreenWidth = this.getApplicationContext().getResources()
+                .getDisplayMetrics().widthPixels;
+        mScreenHeight = this.getApplicationContext().getResources()
+                .getDisplayMetrics().heightPixels;
 
         /**
          * 获取ip
@@ -116,5 +139,9 @@ public class CityApp extends MultiDexApplication {
 
     public static void setIp(String ip) {
         CityApp.ip = ip;
+    }
+
+    public static CityApp getInstance() {
+        return mInstance;
     }
 }

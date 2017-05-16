@@ -18,10 +18,11 @@ import com.android.volley.toolbox.Volley;
 public class AppApplication extends Application {
     public static Activity activity;
     public static RequestQueue queues;
-
+    public static boolean rollViewPagerTouching;
     @Override
     public void onCreate() {
         super.onCreate();
+        rollViewPagerTouching = false;
         queues = Volley.newRequestQueue(getApplicationContext());
 
     }
