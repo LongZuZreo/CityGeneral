@@ -976,7 +976,7 @@ public class PublicUtils {
 
     public static DisplayImageOptions getOptions() {
         if (options == null) {
-            options = ImageLoaderTools.getCommonOptions();
+
         }
         return options;
     }

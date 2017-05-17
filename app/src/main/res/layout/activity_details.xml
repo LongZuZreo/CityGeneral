@@ -19,7 +19,6 @@
             android:visibility="visible"
             />
 
-
         <TextView
             android:id="@+id/tab_title"
             android:layout_width="wrap_content"
@@ -40,13 +39,72 @@
 
 
     </RelativeLayout>
-    <WebView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/mWebView">
+        android:layout_height="60dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/mWebView_Details_title"
+            android:text="大家好，我是闫亚军"
+            android:textSize="18sp"
+            android:paddingLeft="5dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/mWebView_Details_title"
+            android:paddingLeft="5dp">
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="文明延庆"
+                    android:textSize="14sp"
+                    android:paddingRight="5dp"
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#cccccc"
+                    android:text="12小时前"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:paddingRight="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ccoo_icon_look"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#cccccc"
+                    android:text="896"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="25dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
 
-    </WebView>
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mWebView"
+            android:layout_weight="1">
+
+        </WebView>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -58,15 +116,29 @@
             android:src="@drawable/cover_main_zan_n"
             android:layout_alignParentLeft="true"
             android:visibility="visible"
-            />
-
-        <EditText
-            android:layout_width="230dp"
+             android:id="@+id/mhahahahha" />
+        <RelativeLayout
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_centerInParent="true"
-            android:visibility="visible"
-            android:hint="写评论"/>
+            android:layout_toRightOf="@id/mhahahahha">
+            <EditText
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"
+                android:visibility="visible"
+                android:hint="写评论"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="抢沙发"
+                android:layout_centerInParent="true"
+                android:textSize="15sp"
+                android:paddingRight="30dp"
+                android:textColor="#cccccc"/>
+
+        </RelativeLayout>
 
         <Button
             android:src="@drawable/new_con_share_2"

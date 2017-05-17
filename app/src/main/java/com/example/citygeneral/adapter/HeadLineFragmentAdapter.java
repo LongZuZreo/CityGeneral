@@ -11,7 +11,7 @@ import java.util.List;
  * Created by ASUS on 2017/5/9.
  */
 
-public class HeadLineFragmentAdapter extends PagerAdapter{
+public class    HeadLineFragmentAdapter extends PagerAdapter{
 
     private List<ImageView> mlist;
     public HeadLineFragmentAdapter(List<ImageView> list){

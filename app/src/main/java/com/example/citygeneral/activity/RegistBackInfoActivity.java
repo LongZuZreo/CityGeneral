@@ -216,7 +216,7 @@ public class RegistBackInfoActivity extends BaseActivity implements
         if (!info.getUserFace().equals("")) {
             imageUrl = info.getUserFace();
             Glide.with(this).load(imageUrl).into(image);
-         //   ImageLoaderTools.loadCommenImage(imageUrl, image);
+
         }
 
         if (!info.getNick().equals("")) {
@@ -248,7 +248,7 @@ public class RegistBackInfoActivity extends BaseActivity implements
         if (getIntent().getStringExtra("client_flag") != null && !getIntent().getStringExtra("client_flag").equals("")) {
             imageUrl = getIntent().getStringExtra("client_pic");
             Glide.with(this).load(imageUrl).into(image);
-            //ImageLoaderTools.loadCommenImage(imageUrl, image);
+
             nameEdit.setText(getIntent().getStringExtra("client_name"));
         }
 

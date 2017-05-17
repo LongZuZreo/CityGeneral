@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 
 import com.androidkun.PullToRefreshRecyclerView;
+import com.example.citygeneral.utils.PublicUtils;
 import com.example.citygeneral.view.ActivityUtils;
 import com.example.citygeneral.AppApplication;
 import com.example.citygeneral.R;
@@ -61,7 +63,7 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
     private ListView mListView;
     private HeadLinePresentImp presentImp;
     //头条集合
-    private List<HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean.DataBean> lineBeanList;
+    private List<HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean> lineBeanList;
     private HeadLineAdapter lineAdapter;
     private HeadLineBean headLineBean;
     //上拉刷新
@@ -77,6 +79,8 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
     private RadioButton findLive;
     private RadioButton citySay;
     private Intent intent;
+    //详情
+    private JSONObject dbJson = new JSONObject();
 
     @Override
     protected int getLayoutId() {
@@ -236,7 +240,7 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
         mListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean.DataBean dataBean = lineBeanList.get(position);
+                HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean infoBean = lineBeanList.get(position);
 
             }
 
@@ -291,7 +295,7 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
             List<HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean> info = headLineBean1.getInfo();
             for(HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean infoBean:info){
                 List<HeadLineBean.ServerInfoBean.HeadOInfoListBean.InfoBean.DataBean> data = infoBean.getData();
-                lineBeanList.addAll(data);
+                lineBeanList.addAll(info);
                 lineAdapter.notifyDataSetChanged();
                 isLoadMove = false;
                 if(mListView.getFooterViewsCount()!=0){
@@ -363,18 +367,39 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
         }
     }
 
-    private String creatParamsSign() {
+   /* private void RequestData1() {// 上方信息请求
+        // TODO 数据请求
         JSONObject jo = new JSONObject();
         try {
-            jo.put("siteID", 2422);
-            jo.put("userID", 28859905);
+
+            jo.put("siteID", 1);
+            if (PublicUtils.isLogin()) {
+                try {
+                    jo.put("userID", Integer.parseInt(PublicUtils.getUserID()));
+
+                    dbJson.put("userID", Integer.parseInt(PublicUtils.getUserID()));
+                } catch (Exception e) {
+                    // TODO: handle exception
+                }
+            }
+            jo.put("newsID", Integer.parseInt(newsId));
+
+            jo.put("sourceType", CcooApp.headhomeFlag);
+
+            dbJson.put("sourceType", CcooApp.headhomeFlag);
+
+            dbJson.put("siteID", utils.getCityId());
+            dbJson.put("newsID", Integer.parseInt(newsId));
+            dbJson.put("method", Constants.PHSocket_GetCityNewsBody);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        final String params = Parameter.createnewsParam(
-                NetUrl.PHSocket_GetUserSign, jo);
-        return params;
-    }
+        String params = Parameter.createParam(
+                Constants.PHSocket_GetCityNewsBody, jo);
+        Log.d("qqqqq", params);
+        manager1.request(params, 0);
+    }*/
+
 
     @Override
     public void onClick(View v) {

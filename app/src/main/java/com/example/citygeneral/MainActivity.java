@@ -92,7 +92,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         leftMenuLayout= (LinearLayout) findViewById(R.id.left_menu_layout);
         leftMenuLayout.setOnClickListener(this);
         if (sp.getInt("MAINFRAGMENT", 0) == 0) {
-            dataIcon.add(getResources().getDrawable(R.drawable.ccoo_icon_main));
+            dataIcon.add(getResources().getDrawable(R.drawable .ccoo_icon_main));
             dataIconAfter.add(getResources().getDrawable(
                     R.drawable.ccoo_icon_main_after));
             dataTitle.add("首页");
