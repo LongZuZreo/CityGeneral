@@ -26,6 +26,7 @@ public class CoverMainFragment extends BaseFragment {
 
     }
 
+
     @Override
     protected void initView(View view) {
 
