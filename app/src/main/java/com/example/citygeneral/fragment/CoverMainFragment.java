@@ -18,6 +18,7 @@ public class CoverMainFragment extends BaseFragment {
     @Override
     protected void loadData() {
 
+
     }
 
     @Override
