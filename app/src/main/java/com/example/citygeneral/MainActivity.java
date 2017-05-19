@@ -533,6 +533,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 rootView.setVisibility(View.INVISIBLE);
                 downNum--;
                 if (downNum == -1) {
+
                     isMultiple = false;
                     popupWindow.dismiss();
                     Animation animation1 = AnimationUtils.loadAnimation(MainActivity.this,R.anim.back);
