@@ -3,6 +3,7 @@ package com.example.citygeneral.utils.file;
 import android.content.Context;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.widget.PopupWindow;
 
 
 import com.example.citygeneral.utils.BitmapCompress;
@@ -50,6 +51,7 @@ public class UploadImageManager {
 
 
     }
+
 
     private void uploadFile(String path, String houzhui) {
 

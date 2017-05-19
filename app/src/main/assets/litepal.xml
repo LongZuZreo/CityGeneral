@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="ccoo_cache" ></dbname>
+    <version value="1" ></version>
+    <list>
+        <mapping class="com.www.ccoocity.db.TiebaModel"></mapping>
+        <mapping class="com.www.ccoocity.db.BbsModel"></mapping>
+        <mapping class="com.www.ccoocity.db.HuodongModel"></mapping>
+        <mapping class="com.www.ccoocity.db.NewsModel"></mapping>
+        <mapping class="com.www.ccoocity.db.BoyModel"></mapping>
+        <mapping class="com.www.ccoocity.db.GirlModel"></mapping>
+        <mapping class="com.www.ccoocity.db.BabyModel"></mapping>
+        <mapping class="com.www.ccoocity.db.FindModel"></mapping>
+        <mapping class="com.www.ccoocity.db.HouseModel"></mapping>
+        <mapping class="com.www.ccoocity.db.JobModel"></mapping>
+        <mapping class="com.www.ccoocity.db.ShopModel"></mapping>
+        <mapping class="com.www.ccoocity.db.HomeModel"></mapping>
+    </list>
+</litepal>
