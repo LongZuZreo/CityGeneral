@@ -63,7 +63,14 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal">
-        <RadioGroup
+        <GridView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mGridView_Find"
+            android:numColumns="4">
+
+        </GridView>
+        <!--<RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:weightSum="4"
@@ -113,6 +120,6 @@
                 android:id="@+id/mfragmentlistview_CitySay"
                 android:layout_weight="1"
                 android:gravity="center"/>
-        </RadioGroup>
+        </RadioGroup>-->
     </RelativeLayout>
 </LinearLayout>

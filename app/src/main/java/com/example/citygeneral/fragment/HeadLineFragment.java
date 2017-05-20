@@ -13,12 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 
 import com.androidkun.PullToRefreshRecyclerView;
+import com.example.citygeneral.adapter.FindBeanAdapter;
+import com.example.citygeneral.model.callback.MyCallBack;
+import com.example.citygeneral.model.entity.FindBean;
+import com.example.citygeneral.model.http.BaseVolley;
 import com.example.citygeneral.utils.PublicUtils;
 import com.example.citygeneral.view.ActivityUtils;
 import com.example.citygeneral.AppApplication;
@@ -81,6 +86,7 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
     private Intent intent;
     //详情
     private JSONObject dbJson = new JSONObject();
+    private GridView mGridViewFind;
 
     @Override
     protected int getLayoutId() {
@@ -121,14 +127,32 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
         mListView.setOnScrollListener(this);
         View headView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_headline_head, null);
         mViewPager = (ViewPager) headView.findViewById(R.id.mViewPager);
-        findWork = (RadioButton) headView.findViewById(R.id.mfragmentlistview_findWord);
+        /*findWork = (RadioButton) headView.findViewById(R.id.mfragmentlistview_findWord);
         findWork.setOnClickListener(this);
         findHouse = (RadioButton) headView.findViewById(R.id.mfragmentlistview_findHouse);
         findHouse.setOnClickListener(this);
         findLive = (RadioButton) headView.findViewById(R.id.mfragmentlistview_findLive);
         findLive.setOnClickListener(this);
         citySay = (RadioButton) headView.findViewById(R.id.mfragmentlistview_CitySay);
-        citySay.setOnClickListener(this);
+        citySay.setOnClickListener(this);*/
+        mGridViewFind = (GridView) headView.findViewById(R.id.mGridView_Find);
+        final List<FindBean.ServerInfoBean> gridviewList = new ArrayList<>();
+        final FindBeanAdapter findBeanAdapter = new FindBeanAdapter(getActivity(),gridviewList);
+        mGridViewFind.setAdapter(findBeanAdapter);
+        //发送网络请求
+        String param = "{\"appName\":\"CcooCity\",\"Param\":{\"siteID\":1717},\"requestTime\":\"2017-05-20 10:59:46\",\"customerKey\":\"3EB362B8DA69F987B77E295EB1AB446F\",\"Method\":\"PHSocket_GetHomeNavigationInfo\",\"Statis\":{\"PhoneId\":\"866622010080020\",\"System_VersionNo\":\"Android 4.4.2\",\"UserId\":0,\"PhoneNum\":\"\",\"SystemNo\":2,\"PhoneNo\":\"Lenovo Z90-3\",\"SiteId\":1717},\"customerID\":8001,\"version\":\"4.6\"}\n";
+        BaseVolley.getInstance().doReplacePostString("http://appnew.ccoo.cn/appserverapi.ashx", "d", param, new MyCallBack<FindBean>() {
+            @Override
+            public void onDataChanged(FindBean data) {
+                gridviewList.addAll(data.getServerInfo());
+                findBeanAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onErrorHappened(String errorMessage) {
+
+            }
+        });
         group = (ViewGroup) headView.findViewById(R.id.mRoude_dot);
         mListView.addHeaderView(headView);
     }

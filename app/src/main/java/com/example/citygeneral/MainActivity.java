@@ -20,16 +20,19 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.citygeneral.adapter.MainGridViewAdapter;
 import com.example.citygeneral.base.BaseActivity;
 import com.example.citygeneral.base.BaseFragment;
 import com.example.citygeneral.base.FragmentFlyer;
@@ -44,8 +47,14 @@ import com.example.citygeneral.fragment.NewsMainFragment;
 import com.example.citygeneral.fragment.PriviligeFragment;
 import com.example.citygeneral.fragment.TiebaMainFragment;
 import com.example.citygeneral.fragment.ZhaoPinFragment;
+import com.example.citygeneral.model.callback.MyCallBack;
+import com.example.citygeneral.model.entity.GridViewBean;
 import com.example.citygeneral.model.http.BaseVolley;
+import com.example.citygeneral.utils.NetUrl;
 import com.example.citygeneral.utils.PopupWindowUtils;
+import com.example.citygeneral.view.FirstActivity;
+import com.example.citygeneral.view.TextActivity;
+import com.example.citygeneral.view.TwoActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,6 +98,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private boolean isMultiple = false;
 
     private List<String> stringlList;
+    private View view;
+    private SimpleAdapter adapter;
+    private List<GridViewBean.ServerInfoBean.ConfigDataBean> list;
+    private MainGridViewAdapter adapter1;
 
     @Override
     protected int getLayoutId() {
@@ -148,7 +161,67 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         dataFragments.add(new HeadLineFragment());
         setRightView();
         FragmentFlyer.getInstance(this).setLayoutId(R.id.mFram).startFragment(HeadLineFragment.class);
+
+        view = LayoutInflater.from(MainActivity.this ).inflate(R.layout.activity_main_popupwindow, null);
+        mGridView = (GridView) view.findViewById(R.id.mGridView);
+
+        final ImageView imageViewBotton = (ImageView) view.findViewById(R.id.mGridView_botton);
+        imageViewBotton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                downNum = stringlList.size()-1;
+                removeGridViewItem(mGridView.getChildAt(downNum), downNum);
+
+            }
+        });
+
+        list = new ArrayList<>();
+        adapter1 = new MainGridViewAdapter(MainActivity.this,list);
+        mGridView.setAdapter(adapter1);
+        String params = "{\"appName\":\"CcooCity\",\"Param\":{\"siteid\":2482},\"requestTime\":\"2017-05-20 10:25:32\",\"customerKey\":\"A01D0FE4F32BB5EC4A449F55A460ED79\",\"Method\":\"PHSocket_GetPubConfigInfo\",\"Statis\":{\"PhoneId\":\"864394010187930\",\"System_VersionNo\":\"Android 4.4.2\",\"UserId\":0,\"PhoneNum\":\"\",\"SystemNo\":2,\"PhoneNo\":\"Lenovo P70-t\",\"SiteId\":2482},\"customerID\":8001,\"version\":\"4.6\"}";
+        BaseVolley.getInstance().doReplacePostString(NetUrl.APPURL, "cc",params , new MyCallBack<GridViewBean>() {
+            @Override
+            public void onDataChanged(GridViewBean data) {
+                list.addAll(data.getServerInfo().getConfigData());
+                Log.d("MainActivity", "list:" + list);
+                adapter1.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onErrorHappened(String errorMessage) {
+
+            }
+        });
+        stringlList=new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            stringlList.add(i+"");
+        }
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        Intent intent = new Intent(MainActivity.this,CityChoiceActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case 1:
+                        Intent intent1 = new Intent(MainActivity.this,TextActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case 2:
+                        Intent intent2 = new Intent(MainActivity.this,TwoActivity.class);
+                        startActivity(intent2);
+                        break;
+                }
+            }
+        });
+
     }
+
+
+
 
     private void setRightView() {
         for (int i = 0; i < dataIconAfter.size(); i++) {
@@ -364,17 +437,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 Intent intent=new Intent(this,UserInfoActivity.class);
                 break;
             case R.id.more:
-
-                Animation animation = AnimationUtils.loadAnimation(this,R.anim.ratate_addmore);
-                //动画执行完后是否停留在执行完的状态
+                Animation animation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.ratate_addmore);
                 animation.setFillAfter(true);
                 addMore.startAnimation(animation);
-
                 animation.setAnimationListener(new Animation.AnimationListener() {
-
-
-                    private GridView mGridView;
-
                     @Override
                     public void onAnimationStart(Animation animation) {
 
@@ -383,7 +449,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         //弹出个popupWindow
-                        View view = LayoutInflater.from(MainActivity.this ).inflate(R.layout.activity_main_popupwindow, null);
                         popupWindow = new PopupWindow(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                         popupWindow.setContentView(view);
                         view.getBackground().setAlpha(200);
@@ -391,54 +456,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         popupWindow.setBackgroundDrawable(new ColorDrawable(0));
                         popupWindow.setFocusable(true);
                         // popupWindow.setAnimationStyle(R.style.mypopwindow_anim_style);
-                        popupWindow.showAtLocation(findViewById(R.id.base_action_bar), Gravity.BOTTOM,0,0);
-                        mGridView = (GridView) view.findViewById(R.id.mGridView);
-                        ImageView mimageViewTop = (ImageView) view.findViewById(R.id.mGridView_top);
-                        ImageView imageViewBottom = (ImageView) view.findViewById(R.id.mGridView_botton);
-                        imageViewBottom.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                downNum = stringlList.size()-1;
-                                removeGridViewItem(mGridView.getChildAt(downNum),downNum);
-                            }
-                        });
-                        List list = new ArrayList<>();
-                        HashMap map = new HashMap();
-                        map.put("image",R.drawable.my_main_gift);
-                        map.put("name","发帖子");
-                        list.add(map);
-                        map = new HashMap();
-                        map.put("image",R.drawable.my_main_gift);
-                        map.put("name","爆个照");
-                        list.add(map);
-                        map = new HashMap();
-                        map.put("image",R.drawable.my_main_gift);
-                        map.put("name","小视频");
-                        list.add(map);
-                        map = new HashMap();
-                        map.put("image",R.drawable.my_main_gift);
-                        map.put("name","有奖爆料");
-                        list.add(map);
-                        map = new HashMap();
-                        map.put("image",R.drawable.my_main_gift);
-                        map.put("name","分类信息");
-                        list.add(map);
-                        map = new HashMap();
-                        map.put("image",R.drawable.my_main_gift);
-                        map.put("name","二维码");
-                        list.add(map);
-                        mGridView.setLayoutAnimation(getAnimalItem());
-
-                        stringlList=new ArrayList<>();
-                        for (int i = 0; i < 6; i++) {
-                            stringlList.add(i+"");
-                        }
-
-
-                        SimpleAdapter adapter = new SimpleAdapter(MainActivity.this,list,R.layout.activity_main_popupwindow_gridview,new String[]{"image","name"},new int[]{R.id.mGridView_imagge,R.id.mGridView_name});
-
-                        mGridView.setAdapter(adapter);
-
+                        popupWindow.showAtLocation(findViewById(R.id.base_action_bar), Gravity.BOTTOM, 0,0);
                     }
 
                     @Override
@@ -447,6 +465,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     }
                 });
 
+                mGridView.setLayoutAnimation(getAnimalItem());
                 break;
 
 
@@ -530,21 +549,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
             public void onAnimationEnd(Animation animation) {
                 //隐藏已经退出的item
-                rootView.setVisibility(View.INVISIBLE);
+//                rootView.setVisibility(View.INVISIBLE);
+                animation.setFillAfter(true);
                 downNum--;
                 if (downNum == -1) {
-
                     isMultiple = false;
                     popupWindow.dismiss();
                     Animation animation1 = AnimationUtils.loadAnimation(MainActivity.this,R.anim.back);
-                    animation.setFillAfter(true);
+                    animation1.setFillAfter(true);
                     addMore.startAnimation(animation1);
                     return;
                 }
                 removeGridViewItem(mGridView.getChildAt(downNum), downNum);
-                if (BuildConfig.DEBUG) Log.d("MainActivity", "downNum:" + downNum);
             }
         });
+
         rootView.startAnimation(set);
 
     }

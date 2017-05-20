@@ -2,18 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:id="@+id/mhhihie">
-
-
+    android:gravity="center">
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/my_main_gift"
-        android:id="@+id/mGridView_imagge"/>
+        android:id="@+id/mFragment_head_gridview_image"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/mGridView_name"
-        android:text="哈哈哈哈哈"/>
+        android:id="@+id/mFragment_head_gridview_title"/>
 </LinearLayout>
