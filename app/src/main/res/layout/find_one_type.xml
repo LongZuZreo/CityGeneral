@@ -6,6 +6,7 @@
     android:layout_marginLeft="10dp">
 
     <TextView
+        android:id="@+id/title_Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="热门事"
@@ -25,6 +26,7 @@
         android:layout_marginTop="10dp">
 
         <RelativeLayout
+            android:id="@+id/left_one"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -46,6 +48,7 @@
                 android:layout_marginTop="8dp"/>
 
             <TextView
+                android:id="@+id/title_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="关我事要评说"
@@ -61,13 +64,14 @@
             android:background="@color/white"/>
 
         <RelativeLayout
+            android:id="@+id/right_one"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/orange">
 
             <ImageView
-                android:id="@+id/active"
+                android:id="@+id/activeImg"
                 android:layout_width="80dp"
                 android:layout_height="60dp" />
 
@@ -75,13 +79,14 @@
                 android:id="@+id/titleText1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/active"
+                android:layout_toRightOf="@+id/activeImg"
                 android:text="活动"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:layout_marginTop="8dp"/>
 
             <TextView
+                android:id="@+id/title_detail1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="就爱凑热闹"

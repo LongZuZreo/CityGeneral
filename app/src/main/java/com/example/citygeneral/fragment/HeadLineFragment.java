@@ -18,9 +18,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.androidkun.PullToRefreshRecyclerView;
+import com.example.citygeneral.BuildConfig;
 import com.example.citygeneral.adapter.FindBeanAdapter;
+import com.example.citygeneral.base.FragmentFlyer;
 import com.example.citygeneral.model.callback.MyCallBack;
 import com.example.citygeneral.model.entity.FindBean;
 import com.example.citygeneral.model.http.BaseVolley;
@@ -139,6 +142,23 @@ public class HeadLineFragment extends BaseFragment implements HeadLineCtract.Vie
         final List<FindBean.ServerInfoBean> gridviewList = new ArrayList<>();
         final FindBeanAdapter findBeanAdapter = new FindBeanAdapter(getActivity(),gridviewList);
         mGridViewFind.setAdapter(findBeanAdapter);
+        mGridViewFind.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        FragmentFlyer.getInstance(HeadLineFragment.this).
+                                startFragment(FindJobFragment.class).build();
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }
+            }
+        });
         //发送网络请求
         String param = "{\"appName\":\"CcooCity\",\"Param\":{\"siteID\":1717},\"requestTime\":\"2017-05-20 10:59:46\",\"customerKey\":\"3EB362B8DA69F987B77E295EB1AB446F\",\"Method\":\"PHSocket_GetHomeNavigationInfo\",\"Statis\":{\"PhoneId\":\"866622010080020\",\"System_VersionNo\":\"Android 4.4.2\",\"UserId\":0,\"PhoneNum\":\"\",\"SystemNo\":2,\"PhoneNo\":\"Lenovo Z90-3\",\"SiteId\":1717},\"customerID\":8001,\"version\":\"4.6\"}\n";
         BaseVolley.getInstance().doReplacePostString("http://appnew.ccoo.cn/appserverapi.ashx", "d", param, new MyCallBack<FindBean>() {
